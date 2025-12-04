@@ -1,6 +1,7 @@
 {
   "name": "e-commerce",
   "version": "1.0.0",
+  "homepage": "https://gbikbaeva.github.io/e-commerce/",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +10,9 @@
     "preview": "vite preview",
     "lint": "eslint",
     "format": "prettier --write \"src/**/*.{js,jsx,css,html}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "type": "module",
@@ -24,6 +27,7 @@
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
+    "gh-pages": "^6.3.0",
     "globals": "^16.5.0",
     "prettier": "^3.7.4",
     "vite": "^7.2.6"
