@@ -19,10 +19,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "@tanstack/react-router": "^1.139.14",
+    "clsx": "^2.1.1",
     "react": "^19.2.1",
-    "react-dom": "^19.2.1"
+    "react-dom": "^19.2.1",
+    "react-icons": "^5.5.0",
+    "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
+    "@tanstack/react-router-devtools": "^1.139.15",
+    "@tanstack/router-plugin": "^1.139.14",
     "@vitejs/plugin-react": "^5.1.1",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
