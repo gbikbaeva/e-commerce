@@ -1,8 +1,8 @@
 import clsx from "clsx";
 
-import CartButton from "./CartButton";
-import Link from "./Link";
+import CartButton from "../CartButton/CartButton";
 import MobileNavMenu from "./MobileNavMenu";
+import Link from "../Link";
 
 const links = [
   {

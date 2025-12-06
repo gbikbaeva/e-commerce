@@ -3,7 +3,7 @@ import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
 import { createPortal } from "react-dom";
 
-import Link from "./Link";
+import Link from "../Link";
 
 const MobileNavMenu = ({ links }) => {
   const [openMenu, setOpenMenu] = useState(false);
