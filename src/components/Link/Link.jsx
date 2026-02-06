@@ -1,13 +1,32 @@
 import { Link as RouterLink } from "@tanstack/react-router";
 import clsx from "clsx";
 
-const Link = ({ children, className, disabled, ...props }) => {
+const variants = {
+  primary: clsx(
+    "text-indigo-700",
+    "hover:text-indigo-800 focus:text-indigo-800",
+    "rounded focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]",
+  ),
+  gray: clsx(
+    "text-neutral-600",
+    "hover:text-neutral-900 focus:text-neutral-900",
+    "rounded focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]",
+  ),
+};
+
+const Link = ({
+  children,
+  className,
+  disabled,
+  variant = "gray",
+  ...props
+}) => {
   return (
     <RouterLink
       {...props}
       className={clsx(
-        "rounded px-0.5 font-medium text-base text-neutral-600",
-        "hover:text-neutral-900 focus:text-neutral-900 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]",
+        "rounded px-0.5 font-medium text-base",
+        variants[variant],
         {
           "pointer-events-none text-neutral-400": disabled,
         },
