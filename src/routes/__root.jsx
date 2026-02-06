@@ -1,15 +1,18 @@
 import { createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-import Navbar from "../components/Navbar";
-import ProductDetailPage from "../pages/ProductDetail";
+import Modal from "../components/Modal";
+import Reviews from "../components/Reviews";
 
 export const Route = createRootRoute({
   component: () => {
+    const isOpen = true;
     return (
       <>
         <main className="min-h-screen">
-          <ProductDetailPage />
+          <Modal isOpen={isOpen} onClose={() => {}}>
+            <Reviews />
+          </Modal>
           <TanStackRouterDevtools />
         </main>
       </>
