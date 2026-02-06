@@ -24,6 +24,19 @@ const variants = {
   ),
 };
 
+const variantsDisabled = {
+  primary: clsx(
+    "disabled:bg-neutral-100",
+    "disabled:text-neutral-400",
+    "disabled:shadow-none",
+  ),
+  secondary: clsx(
+    "disabled:bg-neutral-100",
+    "disabled:text-neutral-400",
+    "disabled:shadow-none",
+  ),
+};
+
 const Button = ({
   className,
   label,
@@ -36,10 +49,11 @@ const Button = ({
     <button
       className={clsx(
         "inline-flex items-center justify-center rounded font-medium outline-none border-none cursor-pointer",
-        "focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]",
+        "focus-outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]",
         isDisabled && "pointer-events-none",
         sizes[size],
         variants[variant],
+        variantsDisabled[variant],
         className,
       )}
       disabled={isDisabled}

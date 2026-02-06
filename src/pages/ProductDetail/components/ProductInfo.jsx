@@ -4,11 +4,12 @@ import {
   AccordionItem,
   AccordionContent,
   AccordionHeader,
-} from "../../components/Accordion";
+} from "../../../components/Accordion";
 import { ProductDetailContext } from "./contexts";
 
 const ProductInfo = () => {
-  const [product] = useContext(ProductDetailContext);
+  const [productDetail] = useContext(ProductDetailContext);
+  const { product } = productDetail;
   const { info } = product;
 
   return (

@@ -1,12 +1,19 @@
-import { useState } from "react";
-import ColorSwatch from "../../components/ColorSwatch";
-import COLORS from "../../constants";
+import { useContext, useMemo } from "react";
+
+import ColorSwatch from "../../../components/ColorSwatch";
+import COLORS from "../../../constants";
+import { getUnavailableColors } from "../utils";
+import { ProductDetailContext } from "./contexts";
 
 const AvailableColors = () => {
-  const [selectedColor, setSelectedColor] = useState(null);
+  const [productDetail] = useContext(ProductDetailContext);
+  const { product, selectedColor, setSelectedColor } = productDetail;
 
-  const colors = ["green", "yellow"];
-  const unavailableColors = ["yellow"];
+  const { colors } = product;
+  const unavailableColors = useMemo(
+    () => getUnavailableColors(product),
+    [product],
+  );
 
   return (
     <fieldset aria-label="Choose a color">
