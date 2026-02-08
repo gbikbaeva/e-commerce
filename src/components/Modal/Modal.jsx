@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { RiCloseLine } from "react-icons/ri";
 

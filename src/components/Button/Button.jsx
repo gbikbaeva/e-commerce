@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { Link as RouterLink } from "@tanstack/react-router";
 
 const sizes = {
   md: "px-3.5 py-2.5 gap-x-1.5 h-10 text-sm",
@@ -22,6 +21,12 @@ const variants = {
     "border border-neutral-200",
     "hover:bg-neutral-50 focus:bg-neutral-50",
   ),
+  tertiary: clsx(
+    "bg-transparent",
+    "text-indigo-700",
+    "border-none",
+    "hover:text-indigo-800 focus:text-indigo-800",
+  ),
 };
 
 const variantsDisabled = {
@@ -35,6 +40,7 @@ const variantsDisabled = {
     "disabled:text-neutral-400",
     "disabled:shadow-none",
   ),
+  tertiary: clsx("disabled:bg-none", "disabled:text-neutral-400"),
 };
 
 const Button = ({
@@ -48,8 +54,9 @@ const Button = ({
   return (
     <button
       className={clsx(
-        "inline-flex items-center justify-center rounded font-medium outline-none border-none cursor-pointer",
+        "inline-flex items-center justify-center rounded font-medium outline-none cursor-pointer",
         "focus-outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]",
+        "text-nowrap",
         isDisabled && "pointer-events-none",
         sizes[size],
         variants[variant],
