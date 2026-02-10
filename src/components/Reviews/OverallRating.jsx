@@ -16,8 +16,7 @@ const RATINGS = {
 
 const OverallRating = () => {
   const [reviewsData] = useContext(ReviewsContext);
-  const [selectedRating, setSelectedRating] = useState(null);
-  const { aggregate } = reviewsData;
+  const { aggregate, selectedRating, onRatingSelect } = reviewsData;
   const { counts, rating, total } = aggregate || {};
 
   const ratings = [
@@ -61,7 +60,9 @@ const OverallRating = () => {
           Overall Rating
         </div>
         <div className="flex justify-center items-center gap-2">
-          <span className="font-semibold text-base text-neutral-900">4.1</span>
+          <span className="font-semibold text-base text-neutral-900">
+            {rating}
+          </span>
           <Rating value={rating} />
           <span className="font-normal text-sm text-neutral-600">
             Based on {total} reviews
@@ -88,7 +89,7 @@ const OverallRating = () => {
               disabled={!hasReviews}
               aria-label={`Filter by ${rating} stars`}
               aria-pressed={selectedRating === rating}
-              onClick={() => setSelectedRating(rating)}
+              onClick={() => onRatingSelect(rating)}
             >
               <span
                 className={clsx(
@@ -110,7 +111,12 @@ const OverallRating = () => {
 
       <div className="flex justify-center gap-6">
         {selectedRating && (
-          <Button variant="tertiary" label="Clear filter" size="xl"></Button>
+          <Button
+            variant="tertiary"
+            label="Clear filter"
+            size="xl"
+            onClick={() => onRatingSelect(null)}
+          ></Button>
         )}
         <Button variant="secondary" label="Write a review" size="xl"></Button>
       </div>

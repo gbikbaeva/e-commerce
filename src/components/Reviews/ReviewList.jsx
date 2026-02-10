@@ -10,7 +10,8 @@ import { formatDate } from "./utils";
 
 const ReviewList = () => {
   const [reviewsData] = useContext(ReviewsContext);
-  const { reviews } = reviewsData || {};
+  const { reviews, pagination, currentPage, isFetchingMore, loadMoreReviews } =
+    reviewsData || {};
 
   if (!reviews || reviews.length === 0) {
     return (
@@ -39,8 +40,16 @@ const ReviewList = () => {
     );
   }
 
+  if (currentPage === 1 && isFetchingMore) {
+    return (
+      <div className="flex h-full flex-col items-center justify-center gap-5">
+        Loading...
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col justify-center gap-6 grow">
+    <div className="flex flex-col justify-center gap-6 grow pb-6">
       <div className="flex flex-col justify-center gap-8">
         {reviews.map((review) => (
           <div
@@ -73,14 +82,18 @@ const ReviewList = () => {
         ))}
       </div>
 
-      <div className="flex flex-col items-end px-4 py-6">
-        <Button
-          variant="secondary"
-          label="Show 12 more reviews"
-          size="lg"
-          className="w-full"
-        ></Button>
-      </div>
+      {pagination.hasMore && (
+        <div className="flex flex-col items-end px-4 pt-6">
+          <Button
+            variant="secondary"
+            size="lg"
+            className="w-full"
+            label={`Show ${pagination.total - reviews.length} more reviews`}
+            disabled={isFetchingMore}
+            onClick={loadMoreReviews}
+          ></Button>
+        </div>
+      )}
     </div>
   );
 };
