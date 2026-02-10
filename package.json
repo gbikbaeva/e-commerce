@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
+    "dev:vercel": "vercel dev",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint",
@@ -19,6 +20,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
     "@tanstack/react-router": "^1.139.14",
+    "@tanstack/react-virtual": "^3.13.18",
     "clsx": "^2.1.1",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
@@ -35,6 +37,7 @@
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.5.0",
     "prettier": "^3.7.4",
+    "vercel": "^50.4.5",
     "vite": "^7.2.6"
   },
   "volta": {

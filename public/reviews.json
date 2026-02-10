@@ -1,0 +1,636 @@
+{
+  "aggregate": {
+    "counts": [
+      { "count": 0, "rating": 1 },
+      { "count": 4, "rating": 2 },
+      { "count": 12, "rating": 3 },
+      { "count": 22, "rating": 4 },
+      { "count": 24, "rating": 5 }
+    ],
+    "rating": 4.1,
+    "total": 62
+  },
+  "data": [
+    {
+      "rating": 5,
+      "content": "I've worn it everywhere, super durable and fashionable.",
+      "created_at": "2024-05-26",
+      "user": {
+        "name": "Lilia McKnight",
+        "user_id": "lilia-mcknight",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/lilia-mcknight.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "I love the comfortable fit and stylish look of this hoodie. Perfect for chilly days out!",
+      "created_at": "2024-03-11",
+      "user": {
+        "name": "Natali Craig",
+        "user_id": "natali-craig",
+        "avatar_url": null
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Absolutely a must-have for anyone who enjoys outdoor activities. Keeps me warm and looks great!",
+      "created_at": "2024-03-10",
+      "user": {
+        "name": "Kimberly Mastrangelo",
+        "user_id": "kimberly-mastrangelo",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/kimberly-mastrangelo.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "Good hoodie but the color was a bit different from what I expected. Still, it's very practical.",
+      "created_at": "2024-03-09",
+      "user": {
+        "name": "Lorri Warf",
+        "user_id": "lorri-warf",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/lorri-warf.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": null,
+      "created_at": "2024-03-08",
+      "user": {
+        "name": "Darren Holmes",
+        "user_id": "darren-holmes",
+        "avatar_url": null
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Stylish and functional, this hoodie has become my go-to for chilly beach nights.",
+      "created_at": "2024-03-07",
+      "user": {
+        "name": "Justine Simard",
+        "user_id": "justine-simard",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/justine-simard.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Fantastic hoodie, offers great insulation and doesn’t sacrifice style.",
+      "created_at": "2024-03-06",
+      "user": {
+        "name": "Emilio Vega",
+        "user_id": "emilio-vega",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/emilio-vega.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Really like the soft material and the lightweight feel, though it snags easily.",
+      "created_at": "2024-03-05",
+      "user": {
+        "name": "Chadwick Stanton",
+        "user_id": "chadwick-stanton",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/chadwick-stanton.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "It's okay, serves its purpose but I wish the material was a bit softer.",
+      "created_at": "2024-03-04",
+      "user": {
+        "name": "Mariam Whitaker",
+        "user_id": "mariam-whitaker",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/mariam-whitaker.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "This is the best hoodie I've purchased in a while – perfect for chilly days!",
+      "created_at": "2024-03-03",
+      "user": {
+        "name": "Mila Rich",
+        "user_id": "mila-rich",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/mila-rich.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Great quality, though a bit pricey. Still, I find it worth the cost for its durability.",
+      "created_at": "2024-03-02",
+      "user": {
+        "name": "Harris Cullen",
+        "user_id": "harris-cullen",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/harris-cullen.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Chic and practical, exactly what I needed for my winter wardrobe.",
+      "created_at": "2024-03-02",
+      "user": {
+        "name": "Helen Norton",
+        "user_id": "helen-norton",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/helen-norton.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Superb quality, fits perfectly and is incredibly warm.",
+      "created_at": "2024-03-01",
+      "user": {
+        "name": "Alison Mathis",
+        "user_id": "alison-mathis",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/alison-mathis.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Love it! It fits well, looks stylish, and keeps me warm.",
+      "created_at": "2024-03-01",
+      "user": {
+        "name": "Gemma Dotson",
+        "user_id": "gemma-dotson",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/gemma-dotson.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "Not bad but the fit was a little tight.",
+      "created_at": "2024-02-28",
+      "user": {
+        "name": "Donnie Monroe",
+        "user_id": "donnie-monroe",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/donnie-monroe.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Absolutely perfect! I wear it everywhere I go.",
+      "created_at": "2024-02-27",
+      "user": {
+        "name": "Kerry Love",
+        "user_id": "kerry-love",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/kerry-love.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Good hoodie, but I wish there were more color options.",
+      "created_at": "2024-02-26",
+      "user": {
+        "name": "Erwin Case",
+        "user_id": "erwin-case",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/erwin-case.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Love the fabric, very breathable during cooler days.",
+      "created_at": "2024-02-25",
+      "user": {
+        "name": "Elise Shannon",
+        "user_id": "elise-shannon",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/elise-shannon.jpg"
+      }
+    },
+    {
+      "rating": 2,
+      "content": "The style is nice, but it didn’t hold up well after washing.",
+      "created_at": "2024-02-24",
+      "user": {
+        "name": "Keenan Potts",
+        "user_id": "keenan-potts",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/keenan-potts.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Stylish and practical, though a bit pricey.",
+      "created_at": "2024-02-23",
+      "user": {
+        "name": "Bonita Woodward",
+        "user_id": "bonita-woodward",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/bonita-woodward.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "My go-to hoodie now for outdoor activities, highly recommend.",
+      "created_at": "2024-02-22",
+      "user": {
+        "name": "Desiree Leblanc",
+        "user_id": "desiree-leblanc",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/desiree-leblanc.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "Looks good but the material feels a bit cheap.",
+      "created_at": "2024-02-21",
+      "user": {
+        "name": "Darnell Hardin",
+        "user_id": "darnell-hardin",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/darnell-hardin.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Excellent hoodie, great for both rain and shine.",
+      "created_at": "2024-02-20",
+      "user": {
+        "name": "Ismael Maxwell",
+        "user_id": "ismael-maxwell",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/ismael-maxwell.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Really nice hoodie, but a little too bulky for my taste.",
+      "created_at": "2024-02-19",
+      "user": {
+        "name": "Zaria Ross",
+        "user_id": "zaria-ross",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/zaria-ross.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Perfect for beach days and very high quality.",
+      "created_at": "2024-02-18",
+      "user": {
+        "name": "Rosalie Ho",
+        "user_id": "rosalie-ho",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/rosalie-ho.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "Decent but overpriced for what it offers.",
+      "created_at": "2024-02-17",
+      "user": {
+        "name": "Leigh Moody",
+        "user_id": "leigh-moody",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/leigh-moody.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Comfortable and fashionable, though it wrinkles easily.",
+      "created_at": "2024-02-16",
+      "user": {
+        "name": "Darcy McCullough",
+        "user_id": "darcy-mccullough",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/darcy-mccullough.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "I get compliments every time I wear this hoodie.",
+      "created_at": "2024-02-15",
+      "user": {
+        "name": "Kirstin Clements",
+        "user_id": "kirstin-clements",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/kirstin-clements.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Great hoodie for layering, very happy with the warmth and fit.",
+      "created_at": "2024-02-14",
+      "user": {
+        "name": "Alden Kemp",
+        "user_id": "alden-kemp",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/alden-kemp.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "Nice design but not as durable as expected.",
+      "created_at": "2024-02-13",
+      "user": {
+        "name": "Sage Benjamin",
+        "user_id": "sage-benjamin",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/sage-benjamin.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Awesome design, light and keeps me warm.",
+      "created_at": "2024-02-12",
+      "user": {
+        "name": "Staci Foreman",
+        "user_id": "staci-foreman",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/staci-foreman.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Good quality, but needs more insulation for colder weather.",
+      "created_at": "2024-02-11",
+      "user": {
+        "name": "Wilmer Le",
+        "user_id": "wilmer-le",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/wilmer-le.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Perfect size and great for layering.",
+      "created_at": "2024-02-10",
+      "user": {
+        "name": "Gilbert Stanley",
+        "user_id": "gilbert-stanley",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/gilbert-stanley.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "Functional but not as comfortable as I hoped.",
+      "created_at": "2024-02-09",
+      "user": {
+        "name": "Clara Hendrix",
+        "user_id": "clara-hendrix",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/clara-hendrix.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Lovely hoodie, but the color fades after a few washes.",
+      "created_at": "2024-02-08",
+      "user": {
+        "name": "Lana Rosario",
+        "user_id": "lana-rosario",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/lana-rosario.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Best hoodie I’ve owned for outdoor sports.",
+      "created_at": "2024-02-07",
+      "user": {
+        "name": "Ike Blackburn",
+        "user_id": "ike-blackburn",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/ike-blackburn.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Light and easy to pack, great for travel.",
+      "created_at": "2024-02-06",
+      "user": {
+        "name": "Murray Rivers",
+        "user_id": "murray-rivers",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/murray-rivers.jpg"
+      }
+    },
+    {
+      "rating": 2,
+      "content": "Not very impressed, the fit was awkward.",
+      "created_at": "2024-02-05",
+      "user": {
+        "name": "Tatiana Moses",
+        "user_id": "tatiana-moses",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/tatiana-moses.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "I love this hoodie, it’s perfect for outdoor activities.",
+      "created_at": "2024-02-04",
+      "user": {
+        "name": "Brenton Mosley",
+        "user_id": "brenton-mosley",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/brenton-mosley.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Practical and stylish, though it snags easily.",
+      "created_at": "2024-02-03",
+      "user": {
+        "name": "Emory Bridges",
+        "user_id": "emory-bridges",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/emory-bridges.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "A must-have for chilly days, exceptionally high quality.",
+      "created_at": "2024-02-02",
+      "user": {
+        "name": "Angelia Rubio",
+        "user_id": "angelia-rubio",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/angelia-rubio.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "Okay hoodie but not what I expected based on the pictures.",
+      "created_at": "2024-02-01",
+      "user": {
+        "name": "Donovan Stark",
+        "user_id": "donovan-stark",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/donovan-stark.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Versatile for both casual and dressier occasions.",
+      "created_at": "2024-01-31",
+      "user": {
+        "name": "Alexandra Chaney",
+        "user_id": "alexandra-chaney",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/alexandra-chaney.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Provides excellent warmth and fits comfortably.",
+      "created_at": "2024-01-29",
+      "user": {
+        "name": "Conrad Warner",
+        "user_id": "conrad-warner",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/conrad-warner.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Fantastic hoodie, got one for my whole family.",
+      "created_at": "2024-01-28",
+      "user": {
+        "name": "Blaise Macias",
+        "user_id": "blaise-macias",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/blaise-macias.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "Fairly good but the material is thinner than I expected.",
+      "created_at": "2024-01-27",
+      "user": {
+        "name": "Daphne Whitfield",
+        "user_id": "daphne-whitfield",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/daphne-whitfield.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Versatile and easy to clean, great for daily use.",
+      "created_at": "2024-01-26",
+      "user": {
+        "name": "Cyril Holt",
+        "user_id": "cyril-holt",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/cyril-holt.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Exactly what I was looking for, great fit and style.",
+      "created_at": "2024-01-25",
+      "user": {
+        "name": "Tammy Reynolds",
+        "user_id": "tammy-reynolds",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/tammy-reynolds.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Solid construction, but I wish there were more sizes.",
+      "created_at": "2024-01-24",
+      "user": {
+        "name": "Dwight Rosales",
+        "user_id": "dwight-rosales",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/dwight-rosales.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "It’s alright, does the job but nothing special.",
+      "created_at": "2024-01-23",
+      "user": {
+        "name": "Brigitte Weeks",
+        "user_id": "brigitte-weeks",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/brigitte-weeks.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Highly recommend, especially for those who enjoy outdoor activities.",
+      "created_at": "2024-01-22",
+      "user": {
+        "name": "Elias Hull",
+        "user_id": "elias-hull",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/elias-hull.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Comfortable and keeps its shape, even after washing.",
+      "created_at": "2024-01-21",
+      "user": {
+        "name": "Jett Waller",
+        "user_id": "jett-waller",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/jett-waller.jpg"
+      }
+    },
+    {
+      "rating": 2,
+      "content": "Not very satisfied, the fit is too loose.",
+      "created_at": "2024-01-20",
+      "user": {
+        "name": "Judith Baldwin",
+        "user_id": "judith-baldwin",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/judith-baldwin.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Excellent choice for a casual or sporty look.",
+      "created_at": "2024-01-19",
+      "user": {
+        "name": "Elias Booker",
+        "user_id": "elias-booker",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/elias-booker.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "Useful but not quite as high quality as I expected.",
+      "created_at": "2024-01-18",
+      "user": {
+        "name": "Paloma Frazier",
+        "user_id": "paloma-frazier",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/paloma-frazier.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Nice hoodie, good for keeping warm without being too bulky.",
+      "created_at": "2024-01-17",
+      "user": {
+        "name": "Marcellus Church",
+        "user_id": "marcellus-church",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/marcellus-church.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Love this hoodie! It’s stylish and very comfortable.",
+      "created_at": "2024-01-16",
+      "user": {
+        "name": "Jacqueline Coffey",
+        "user_id": "jacqueline-coffey",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/jacqueline-coffey.jpg"
+      }
+    },
+    {
+      "rating": 3,
+      "content": "Adequate but the color is not as vibrant in person.",
+      "created_at": "2024-01-15",
+      "user": {
+        "name": "Melinda Sims",
+        "user_id": "melinda-sims",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/melinda-sims.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Solid choice for those looking for a reliable hoodie.",
+      "created_at": "2024-01-14",
+      "user": {
+        "name": "Bryson Floyd",
+        "user_id": "bryson-floyd",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/bryson-floyd.jpg"
+      }
+    },
+    {
+      "rating": 5,
+      "content": "Terrific, lightweight, and keeps me warm in the cold.",
+      "created_at": "2024-01-13",
+      "user": {
+        "name": "Edmond Romero",
+        "user_id": "edmond-romero",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/edmond-romero.jpg"
+      }
+    },
+    {
+      "rating": 4,
+      "content": "Good value for the price, nicely made.",
+      "created_at": "2024-01-12",
+      "user": {
+        "name": "Janette McKinney",
+        "user_id": "janette-mckinney",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/janette-mckinney.jpg"
+      }
+    },
+    {
+      "rating": 2,
+      "content": "Expected better quality for the price, it's just okay.",
+      "created_at": "2024-01-11",
+      "user": {
+        "name": "Winston Mann",
+        "user_id": "winston-mann",
+        "avatar_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/user-avatars/winston-mann.jpg"
+      }
+    }
+  ],
+  "pagination": { "has_more": false, "page": 1, "per_page": 62, "total": 62 }
+}
