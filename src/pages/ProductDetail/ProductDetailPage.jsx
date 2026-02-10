@@ -22,8 +22,8 @@ const ProductDetailPage = () => {
 
   const getProduct = useCallback(async () => {
     setIsProductLoading(true);
-    const data = await fetch(import.meta.env.BASE_URL + "/product.json");
-    const product = await data.json();
+    const response = await fetch("/product.json");
+    const product = await response.json();
     setProduct(product);
     setSelectedColor(product.colors[0]);
     setIsProductLoading(false);
