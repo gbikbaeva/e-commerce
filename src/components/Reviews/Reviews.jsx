@@ -95,7 +95,7 @@ const Reviews = () => {
     <ReviewsContext.Provider value={[value, () => {}]}>
       <div
         className={clsx(
-          "h-[calc(100vh_-_232px)]",
+          "h-[calc(100vh_-_232px)] overflow-y-auto",
           "flex flex-col gap-10 lg:flex-row lg:gap-8",
         )}
       >

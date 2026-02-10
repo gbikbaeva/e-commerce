@@ -1,6 +1,7 @@
-import { useContext } from "react";
-import clsx from "clsx";
+import { useContext, useRef } from "react";
 import { RiChatSmile3Line } from "react-icons/ri";
+import { useVirtualizer } from "@tanstack/react-virtual";
+import clsx from "clsx";
 
 import Button from "../Button";
 import Avatar from "../Avatar";
@@ -48,38 +49,66 @@ const ReviewList = () => {
     );
   }
 
+  const parentRef = useRef(null);
+  const rowVirtualizer = useVirtualizer({
+    count: reviews.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 130,
+    measureElement: (el) => el.getBoundingClientRect().height,
+  });
+  const virtualItems = rowVirtualizer.getVirtualItems();
+
   return (
-    <div className="flex flex-col justify-center gap-6 grow pb-6">
-      <div className="flex flex-col justify-center gap-8">
-        {reviews.map((review) => (
-          <div
-            key={review.user.user_id + review.created_at}
-            className="flex flex-col gap-4"
-          >
-            <div className="flex items-center gap-4">
-              <Avatar
-                src={review.user.avatar_url}
-                name={review.user.name}
-              ></Avatar>
-              <div className="flex flex-col gap-1 grow">
-                <div className="flex items-center justify-between">
-                  <h4 className="font-semibold text-base text-neutral-900">
-                    {review.user.name}
-                  </h4>
-                  <span className="font-normal text-xs text-neutral-600">
-                    {formatDate(new Date(review.created_at))}
-                  </span>
+    <div
+      className="flex flex-col justify-center gap-6 grow pb-6"
+      ref={parentRef}
+    >
+      <div
+        className="w-full relative"
+        style={{ height: rowVirtualizer.getTotalSize() }}
+      >
+        {virtualItems.map((virtualItem, index) => {
+          const review = reviews[virtualItem.index];
+          const isLast = index === virtualItems.length - 1;
+
+          return (
+            <div
+              key={review.user.user_id + review.created_at}
+              data-index={virtualItem.index}
+              ref={rowVirtualizer.measureElement}
+              className={clsx(
+                "flex flex-col gap-4 absolute top-0 left-0 w-full",
+                !isLast && "pb-8",
+              )}
+              style={{
+                transform: `translateY(${virtualItem.start}px)`,
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <Avatar
+                  src={review.user.avatar_url}
+                  name={review.user.name}
+                ></Avatar>
+                <div className="flex flex-col gap-1 grow">
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-semibold text-base text-neutral-900">
+                      {review.user.name}
+                    </h4>
+                    <span className="font-normal text-xs text-neutral-600">
+                      {formatDate(new Date(review.created_at))}
+                    </span>
+                  </div>
+                  <Rating value={review.rating}></Rating>
                 </div>
-                <Rating value={review.rating}></Rating>
               </div>
+              {review.content && (
+                <p className="font-normal text-base text-neutral-600">
+                  {review.content}
+                </p>
+              )}
             </div>
-            {review.content && (
-              <p className="font-normal text-base text-neutral-600">
-                {review.content}
-              </p>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {pagination.hasMore && (
