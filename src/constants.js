@@ -124,10 +124,39 @@ const FILTER_RATINGS = {
   ],
 };
 
+const SORT_OPTIONS = [
+  {
+    label: "Newest",
+    value: "created",
+    direction: "desc",
+  },
+  {
+    label: "Best rating",
+    value: "rating",
+    direction: "desc",
+  },
+  {
+    label: "Most popular",
+    value: "popularity",
+    direction: "desc",
+  },
+  {
+    label: "Price: Low to high",
+    value: "price",
+    direction: "asc",
+  },
+  {
+    label: "Price: High to low",
+    value: "price",
+    direction: "desc",
+  },
+];
+
 export {
   COLORS,
   FILTER_COLLECTIONS,
   FILTER_CATEGORIES,
   FILTER_COLORS,
   FILTER_RATINGS,
+  SORT_OPTIONS,
 };

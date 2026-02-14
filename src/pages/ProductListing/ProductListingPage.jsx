@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import Filter from "./components/Filter";
-import Sorting from "./components/Sorting";
 import ProductListing from "./components/ProductListing";
 import { ProductListingContext } from "./components/contexts";
+import Sort from "./components/Sort";
 
 const ProductListingPage = () => {
   return (
@@ -30,7 +30,7 @@ const ProductListingPage = () => {
           >
             <Filter />
             <div className="block lg:hidden">
-              <Sorting />
+              <Sort />
             </div>
           </div>
 
@@ -41,7 +41,7 @@ const ProductListingPage = () => {
             )}
           >
             <div className="hidden lg:block">
-              <Sorting />
+              <Sort />
             </div>
             <div
               className={clsx(
