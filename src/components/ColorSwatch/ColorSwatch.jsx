@@ -1,40 +1,77 @@
 import clsx from "clsx";
+import { COLORS } from "../../constants";
 
-const ColorSwatch = ({ color, selectedColor, onClick, outOfStock }) => {
+const innerSizes = {
+  sm: "size-4",
+  md: "size-8.5",
+};
+
+const outerSizes = {
+  sm: "size-6",
+  md: "size-14",
+};
+
+const ringSizes = {
+  sm: "focus:ring-2",
+  md: "focus:ring-4",
+};
+
+const strokeSizes = {
+  sm: "h-0.5 w-5",
+  md: "h-px w-5",
+};
+
+const ColorSwatch = ({
+  color,
+  selectedColor,
+  size = "md",
+  onClick,
+  outOfStock,
+  type = "radio",
+}) => {
+  const isWhite = color === COLORS.white.value;
+  const selected = selectedColor === color;
+
   return (
     <label
       key={color}
       aria-label={color}
       className={clsx(
-        "flex size-14 items-center justify-center",
+        "flex items-center justify-center",
         "rounded-full",
+        outerSizes[size],
         outOfStock ? "pointer-events-none" : "cursor-pointer",
       )}
     >
       <input
-        type="radio"
+        type={type}
         name="color-choice"
         className="sr-only"
         value={color}
-        checked={selectedColor === color}
-        aria-checked={selectedColor === color}
+        checked={selected}
         disabled={outOfStock}
         onChange={() => onClick(color)}
+        aria-checked={selected}
+        tabIndex="-1"
       />
       <div
         aria-hidden="true"
         className={clsx(
+          "relative",
           "flex items-center justify-center",
-          "size-8.5 rounded-full",
-          selectedColor === color
+          "rounded-full",
+          innerSizes[size],
+          isWhite && "border border-neutral-200",
+          selected
             ? "border-2 border-white outline outline-1 outline-indigo-600"
             : [
                 "hover:border-2 hover:border-indigo-200",
-                "focus:border-none focus:outline-none focus:ring-[9.33px] focus:ring-indigo-600/[.12]",
+                "focus:border-none focus:outline-none focus:ring-indigo-600/[.12]",
+                ringSizes[size],
               ],
         )}
         style={{ backgroundColor: color }}
-        tabIndex={selectedColor === color || outOfStock ? -1 : 0}
+        tabIndex={selected || outOfStock ? -1 : 0}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             onClick(color);
@@ -43,36 +80,24 @@ const ColorSwatch = ({ color, selectedColor, onClick, outOfStock }) => {
       >
         {selectedColor === color && !outOfStock && (
           <svg
+            className={clsx(isWhite ? "fill-black" : "fill-white")}
             width="28"
             height="28"
             viewBox="0 0 28 28"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M11.6673 17.6993L22.3918 6.97485L24.0417 8.62477L11.6673 20.9991L4.24268 13.5745L5.89259 11.9246L11.6673 17.6993Z"
-              fill="white"
-            />
+            <path d="M11.6673 17.6993L22.3918 6.97485L24.0417 8.62477L11.6673 20.9991L4.24268 13.5745L5.89259 11.9246L11.6673 17.6993Z" />
           </svg>
         )}
 
         {outOfStock && (
-          <svg
-            width="34"
-            height="34"
-            viewBox="0 0 34 34"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect
-              x="32.3999"
-              y="0.199951"
-              width="2.1"
-              height="44.8"
-              transform="rotate(45 32.3999 0.199951)"
-              fill="#525252"
-            />
-          </svg>
+          <div
+            className={clsx(
+              "absolute -rotate-45 bg-neutral-600",
+              strokeSizes[size],
+            )}
+          ></div>
         )}
       </div>
     </label>

@@ -49,6 +49,9 @@ const Button = ({
   isDisabled,
   variant = "primary",
   size = "md",
+  startIcon: StartIcon,
+  endIcon: EndIcon,
+  iconClassName,
   ...props
 }) => {
   return (
@@ -66,7 +69,19 @@ const Button = ({
       disabled={isDisabled}
       {...props}
     >
+      {StartIcon && (
+        <StartIcon
+          className={clsx("size-5 shrink-0 p-0.5", iconClassName)}
+          aria-hidden="true"
+        />
+      )}
       {label}
+      {EndIcon && (
+        <EndIcon
+          className={clsx("size-5 shrink-0 p-0.5", iconClassName)}
+          aria-hidden="true"
+        />
+      )}
     </button>
   );
 };
