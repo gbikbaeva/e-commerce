@@ -31,6 +31,7 @@ const ColorSwatch = ({
 }) => {
   const isWhite = color === COLORS.white.value;
   const selected = selectedColor === color;
+  const readOnly = !onClick || outOfStock;
 
   return (
     <label
@@ -40,7 +41,7 @@ const ColorSwatch = ({
         "flex items-center justify-center",
         "rounded-full",
         outerSizes[size],
-        outOfStock ? "pointer-events-none" : "cursor-pointer",
+        readOnly ? "pointer-events-none" : "cursor-pointer",
       )}
     >
       <input
@@ -50,7 +51,12 @@ const ColorSwatch = ({
         value={color}
         checked={selected}
         disabled={outOfStock}
-        onChange={() => onClick(color)}
+        onChange={() => {
+          if (!onClick) {
+            return;
+          }
+          onClick(color);
+        }}
         aria-checked={selected}
         tabIndex="-1"
       />
@@ -64,14 +70,14 @@ const ColorSwatch = ({
           isWhite && "border border-neutral-200",
           selected
             ? "border-2 border-white outline outline-1 outline-indigo-600"
-            : [
+            : !readOnly && [
                 "hover:border-2 hover:border-indigo-200",
                 "focus:border-none focus:outline-none focus:ring-indigo-600/[.12]",
                 ringSizes[size],
               ],
         )}
         style={{ backgroundColor: color }}
-        tabIndex={selected || outOfStock ? -1 : 0}
+        tabIndex={readOnly || selected ? -1 : 0}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             onClick(color);
