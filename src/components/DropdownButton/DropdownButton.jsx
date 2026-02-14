@@ -41,7 +41,7 @@ const DropdownButton = ({ label, size, children }) => {
   const dropdownRef = useRef(null);
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative inline-block" ref={dropdownRef}>
       <Button
         id={id}
         label={label}

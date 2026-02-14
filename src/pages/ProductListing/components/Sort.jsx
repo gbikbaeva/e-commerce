@@ -9,7 +9,7 @@ const Sort = () => {
   const [selectedSort, setSelectedSort] = useState(null);
 
   return (
-    <DropdownButton label="Sort by" size="lg">
+    <DropdownButton label="Sort by">
       {SORT_OPTIONS.map((option) => (
         <DropdownItem
           key={option.value + option.direction || ""}
