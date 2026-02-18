@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { RiFilterLine } from "react-icons/ri";
 import clsx from "clsx";
 
@@ -19,7 +19,7 @@ import {
   AccordionHeader,
   AccordionItem,
 } from "./Accordion";
-import { useProductFilters } from "./useProductFilters";
+import { ProductListingContext } from "./contexts";
 
 const Filter = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -34,7 +34,7 @@ const Filter = () => {
     onSelectCategory,
     onSelectColor,
     onSelectRating,
-  } = useProductFilters();
+  } = useContext(ProductListingContext);
 
   const filterContent = (
     <div className="flex flex-col gap-6">
