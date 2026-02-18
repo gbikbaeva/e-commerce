@@ -5,7 +5,7 @@ import Badge from "../../../components/Badge";
 import Rating from "../../../components/Rating";
 import Link from "../../../components/Link";
 import Button from "../../../components/Button";
-import { getInventoryData } from "../utils";
+import { getInventoryData } from "../../../utils";
 import AvailableColors from "./AvailableColors";
 import ProductInfo from "./ProductInfo";
 import ProductQuantity from "./ProductQuantity";

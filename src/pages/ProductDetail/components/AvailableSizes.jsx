@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useContext, useMemo } from "react";
 
-import { getUnavailableSizes } from "../utils";
+import { getUnavailableSizes } from "../../../utils";
 import { ProductDetailContext } from "./contexts";
 
 const SIZE_MAP = {

@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
+import { getUnavailableSizes } from "../../utils";
 import { ProductDetailContext } from "./components/contexts";
-import { getUnavailableSizes } from "./utils";
 import ProductDetail from "./components/ProductDetail";
 
 const ProductDetailPage = () => {

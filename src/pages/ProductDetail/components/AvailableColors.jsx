@@ -2,7 +2,7 @@ import { useContext, useMemo } from "react";
 
 import ColorSwatch from "../../../components/ColorSwatch";
 import COLORS from "../../../constants";
-import { getUnavailableColors } from "../utils";
+import { getUnavailableColors } from "../../../utils";
 import { ProductDetailContext } from "./contexts";
 
 const AvailableColors = () => {

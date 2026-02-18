@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { useContext, useMemo, useState } from "react";
 
+import { getSelectedColorImages } from "../../../utils";
 import { ProductDetailContext } from "./contexts";
-import { getSelectedColorImages } from "../utils";
 
 const ProductImages = () => {
   const [productDetail] = useContext(ProductDetailContext);
