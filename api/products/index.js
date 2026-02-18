@@ -1,10 +1,11 @@
-import fs from "fs/promises";
-import path from "path";
+import { loadProductsData, buildFullProduct } from "./data.js";
 
 const VALID_SORT = new Set(["created", "rating", "popularity", "price"]);
 const VALID_DIRECTION = new Set(["asc", "desc"]);
 
-// Vercel serverless function to serve products
+// List products: uses public/products/products.json and aggregates from
+// public/products/*.json (collections, categories, product-images, inventory,
+// product-reviews) so each item has the same structure as original products.json.
 export default async function handler(req, res) {
   try {
     const url = new URL(req.url, `http://${req.headers.host}`);
@@ -22,71 +23,76 @@ export default async function handler(req, res) {
     const colorParam = url.searchParams.get("color");
     const ratingParam = url.searchParams.get("rating");
 
-    const collections = collectionParam
+    const collectionIds = collectionParam
       ? collectionParam
           .split(",")
           .map((s) => s.trim())
           .filter(Boolean)
       : [];
-    const categories = categoryParam
+    const categoryIds = categoryParam
       ? categoryParam
           .split(",")
           .map((s) => s.trim())
           .filter(Boolean)
       : [];
-    const colors = colorParam
+    const colorsFilter = colorParam
       ? colorParam
           .split(",")
           .map((s) => s.trim())
           .filter(Boolean)
       : [];
-    const ratings = ratingParam
+    const ratingsFilter = ratingParam
       ? ratingParam
           .split(",")
           .map((s) => parseInt(s.trim(), 10))
           .filter((n) => !Number.isNaN(n))
       : [];
 
-    const filePath = path.join(process.cwd(), "public", "products.json");
-    const fileContents = await fs.readFile(filePath, "utf8");
-    const json = JSON.parse(fileContents);
-    let products = Array.isArray(json.data) ? [...json.data] : [];
+    const data = await loadProductsData();
+    let baseProducts = [...data.products];
 
-    if (collections.length > 0) {
-      const hasLatest = collections.includes("latest");
-      const collectionIds = collections.filter((c) => c !== "latest");
-      products = products.filter((p) => {
+    if (collectionIds.length > 0) {
+      const hasLatest = collectionIds.includes("latest");
+      const ids = collectionIds.filter((c) => c !== "latest");
+      baseProducts = baseProducts.filter((p) => {
         const inLatest = hasLatest;
         const inCollection =
-          collectionIds.length === 0 ||
-          (p.collection && collectionIds.includes(p.collection.collection_id));
+          ids.length === 0 || (p.collection && ids.includes(p.collection));
         return inLatest || inCollection;
       });
     }
 
-    if (categories.length > 0) {
-      products = products.filter(
-        (p) => p.category && categories.includes(p.category.category_id),
+    if (categoryIds.length > 0) {
+      baseProducts = baseProducts.filter(
+        (p) => p.category && categoryIds.includes(p.category),
       );
     }
 
-    if (colors.length > 0) {
-      products = products.filter(
-        (p) =>
-          Array.isArray(p.colors) && colors.some((c) => p.colors.includes(c)),
-      );
+    if (colorsFilter.length > 0) {
+      baseProducts = baseProducts.filter((p) => {
+        const productColors =
+          data.imagesByProduct.get(p.product_id)?.map((i) => i.color) ?? [];
+        return colorsFilter.some((c) => productColors.includes(c));
+      });
     }
 
-    if (ratings.length > 0) {
-      const minRating = Math.min(...ratings);
-      products = products.filter(
-        (p) => typeof p.rating === "number" && p.rating >= minRating,
-      );
+    if (ratingsFilter.length > 0) {
+      const minRating = Math.min(...ratingsFilter);
+      baseProducts = baseProducts.filter((p) => {
+        const reviews = data.reviewsByProduct.get(p.product_id) ?? [];
+        const avg =
+          reviews.length === 0
+            ? 0
+            : reviews.reduce((s, r) => s + (r.rating ?? 0), 0) / reviews.length;
+        return avg >= minRating;
+      });
     }
+
+    const fullProducts = baseProducts.map((p) => buildFullProduct(p, data));
 
     const sortKey = sort;
     const mult = direction === "asc" ? 1 : -1;
-    products.sort((a, b) => {
+    fullProducts.sort((a, b) => {
       let aVal;
       let bVal;
       switch (sortKey) {
@@ -117,7 +123,7 @@ export default async function handler(req, res) {
       }
     });
 
-    const total = products.length;
+    const total = fullProducts.length;
     const perPage = Math.min(
       10,
       Math.max(1, parseInt(url.searchParams.get("per_page") || "10", 10) || 10),
@@ -127,7 +133,7 @@ export default async function handler(req, res) {
       parseInt(url.searchParams.get("page") || "1", 10) || 1,
     );
     const offset = (page - 1) * perPage;
-    const paginatedProducts = products.slice(offset, offset + perPage);
+    const paginatedProducts = fullProducts.slice(offset, offset + perPage);
     const has_more = offset + paginatedProducts.length < total;
 
     res.status(200).json({

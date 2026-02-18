@@ -1,10 +1,11 @@
+import { useNavigate } from "@tanstack/react-router";
+import { useCallback, useMemo } from "react";
 import clsx from "clsx";
+
 import { COLORS } from "../../constants";
+import { getUnavailableColors } from "../../utils";
 import ColorSwatch from "../ColorSwatch";
 import Link from "../Link";
-import { useCallback, useMemo } from "react";
-import { getUnavailableColors } from "../../utils";
-import { useNavigate } from "@tanstack/react-router";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const ProductCard = ({ product }) => {
     [product],
   );
 
-  const productRoute = `/product/${product.product_id}`;
+  const productRoute = `/products/${product.product_id}`;
   const handleKeyDown = useCallback(
     (event) => {
       if (event.key === "Enter") {
