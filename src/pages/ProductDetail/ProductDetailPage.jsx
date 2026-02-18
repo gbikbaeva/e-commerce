@@ -5,7 +5,7 @@ import { getUnavailableSizes } from "../../utils";
 import { ProductDetailContext } from "./components/contexts";
 import ProductDetail from "./components/ProductDetail";
 
-const ProductDetailPage = () => {
+const ProductDetailPage = ({ productId }) => {
   const [product, setProduct] = useState(null);
   const [isProductLoading, setIsProductLoading] = useState(false);
   const [selectedColor, setSelectedColor] = useState(null);
@@ -22,12 +22,12 @@ const ProductDetailPage = () => {
 
   const getProduct = useCallback(async () => {
     setIsProductLoading(true);
-    const response = await fetch("/product.json");
+    const response = await fetch(`/api/products/${productId}`);
     const product = await response.json();
     setProduct(product);
     setSelectedColor(product.colors[0]);
     setIsProductLoading(false);
-  }, []);
+  }, [productId]);
 
   useEffect(() => {
     getProduct();
@@ -75,25 +75,24 @@ const ProductDetailPage = () => {
   ]);
 
   return (
-    <div className="flex flex-col min-h-screen mx-auto p-4">
-      <div
-        className={clsx(
-          "flex flex-1 rounded-md bg-white",
-          "shadow-sm md:shadow-md lg:shadow-lg",
-        )}
-      >
-        <ProductDetailContext.Provider value={[value, () => {}]}>
-          <div
-            className={clsx(
-              "w-full",
-              "px-4 py-12 md:py-16 lg:p-24",
-              "grid grid-cols-4 gap-x-4 gap-y-12 md:grid-cols-6 md:gap-x-8 lg:grid-cols-12",
-            )}
-          >
-            <ProductDetail />
-          </div>
-        </ProductDetailContext.Provider>
-      </div>
+    <div
+      className={clsx(
+        "flex flex-col justify-start grow py-2",
+        "bg-white rounded-md",
+        "shadow-sm md:shadow-md lg:shadow-lg",
+      )}
+    >
+      <ProductDetailContext.Provider value={[value, () => {}]}>
+        <div
+          className={clsx(
+            "w-full",
+            "px-4 py-12 md:py-16 lg:p-24",
+            "grid grid-cols-4 gap-x-4 gap-y-12 md:grid-cols-6 md:gap-x-8 lg:grid-cols-12",
+          )}
+        >
+          <ProductDetail />
+        </div>
+      </ProductDetailContext.Provider>
     </div>
   );
 };
