@@ -118,12 +118,25 @@ export default async function handler(req, res) {
     });
 
     const total = products.length;
+    const perPage = Math.min(
+      10,
+      Math.max(1, parseInt(url.searchParams.get("per_page") || "10", 10) || 10),
+    );
+    const page = Math.max(
+      1,
+      parseInt(url.searchParams.get("page") || "1", 10) || 1,
+    );
+    const offset = (page - 1) * perPage;
+    const paginatedProducts = products.slice(offset, offset + perPage);
+    const has_more = offset + paginatedProducts.length < total;
 
     res.status(200).json({
-      data: products,
+      data: paginatedProducts,
       pagination: {
         total,
-        has_more: false,
+        has_more,
+        page,
+        per_page: perPage,
       },
     });
   } catch (error) {

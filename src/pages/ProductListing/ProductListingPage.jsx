@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 import Filter from "./components/Filter";
 import ProductListing from "./components/ProductListing";
@@ -7,9 +8,9 @@ import { ProductListingContext } from "./components/contexts";
 import Sort from "./components/Sort";
 import { useProductFilters } from "./components/useProductFilters";
 
+const PRODUCTS_PER_PAGE = 10;
+
 const ProductListingPage = () => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedSort, setSelectedSort] = useState({
     value: "created",
     direction: "desc",
@@ -23,47 +24,60 @@ const ProductListingPage = () => {
     ...filterActions
   } = useProductFilters();
 
-  const getProducts = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      const searchParams = new URLSearchParams();
+  const { data, isLoading, isFetchingNextPage, hasNextPage, fetchNextPage } =
+    useInfiniteQuery({
+      queryKey: [
+        "products",
+        selectedSort,
+        [...selectedCollections],
+        [...selectedCategories],
+        [...selectedColors],
+        [...selectedRatings],
+      ],
+      queryFn: async ({ pageParam }) => {
+        const searchParams = new URLSearchParams();
+        searchParams.set("page", String(pageParam));
+        searchParams.set("per_page", String(PRODUCTS_PER_PAGE));
+        searchParams.set("direction", selectedSort.direction);
+        searchParams.set("sort", selectedSort.value);
 
-      searchParams.set("direction", selectedSort.direction);
-      searchParams.set("sort", selectedSort.value);
+        if (selectedCollections.size > 0) {
+          searchParams.set(
+            "collection",
+            Array.from(selectedCollections).join(","),
+          );
+        }
 
-      if (selectedCollections.size > 0) {
-        searchParams.set(
-          "collection",
-          Array.from(selectedCollections).join(","),
-        );
-      }
-      if (selectedCategories.size > 0) {
-        searchParams.set("category", Array.from(selectedCategories).join(","));
-      }
-      if (selectedColors.size > 0) {
-        searchParams.set("color", Array.from(selectedColors).join(","));
-      }
-      if (selectedRatings.size > 0) {
-        searchParams.set("rating", Array.from(selectedRatings).join(","));
-      }
+        if (selectedCategories.size > 0) {
+          searchParams.set(
+            "category",
+            Array.from(selectedCategories).join(","),
+          );
+        }
 
-      const result = await fetch(`/api/products?${searchParams.toString()}`);
-      const response = await result.json();
-      setProducts(response?.data ?? []);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [
-    selectedCollections,
-    selectedCategories,
-    selectedColors,
-    selectedRatings,
-    selectedSort,
-  ]);
+        if (selectedColors.size > 0) {
+          searchParams.set("color", Array.from(selectedColors).join(","));
+        }
 
-  useEffect(() => {
-    getProducts();
-  }, [getProducts]);
+        if (selectedRatings.size > 0) {
+          searchParams.set("rating", Array.from(selectedRatings).join(","));
+        }
+
+        const result = await fetch(`/api/products?${searchParams.toString()}`);
+        const response = await result.json();
+        return response;
+      },
+      initialPageParam: 1,
+      getNextPageParam: (lastPage) => {
+        const { has_more, page } = lastPage?.pagination ?? {};
+        return has_more ? page + 1 : undefined;
+      },
+    });
+
+  const products = useMemo(
+    () => data?.pages?.flatMap((p) => p.data) ?? [],
+    [data],
+  );
 
   const value = useMemo(() => {
     return {
@@ -75,6 +89,9 @@ const ProductListingPage = () => {
       selectedSort,
       setSelectedSort,
       isLoading,
+      isFetchingNextPage,
+      hasNextPage,
+      fetchNextPage,
       ...filterActions,
     };
   }, [
@@ -87,6 +104,9 @@ const ProductListingPage = () => {
     filterActions,
     setSelectedSort,
     isLoading,
+    isFetchingNextPage,
+    hasNextPage,
+    fetchNextPage,
   ]);
 
   return (
