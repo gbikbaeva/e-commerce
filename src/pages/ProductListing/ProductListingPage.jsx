@@ -6,7 +6,7 @@ import Filter from "./components/Filter";
 import ProductListing from "./components/ProductListing";
 import { ProductListingContext } from "./components/contexts";
 import Sort from "./components/Sort";
-import { useProductFilters } from "./components/useProductFilters";
+import { useProductFilters } from "./hooks/useProductFilters";
 
 const PRODUCTS_PER_PAGE = 10;
 
