@@ -105,9 +105,6 @@ const ProductListing = () => {
   return (
     <div ref={parentRef} className={clsx("w-full h-full overflow-auto")}>
       <div
-        className={clsx(
-          "w-full grid grid-cols-4 gap-8 md:grid-cols-6 lg:grid-cols-9",
-        )}
         style={{
           height: `${rowVirtualizer.getTotalSize()}px`,
           position: "relative",
@@ -117,6 +114,7 @@ const ProductListing = () => {
           const rowIndex = virtualItem.index;
           const start = rowIndex * productsPerRow;
           const rowProducts = products.slice(start, start + productsPerRow);
+          const isLast = rowIndex === virtualItems.length - 1;
 
           return (
             <div
@@ -124,8 +122,9 @@ const ProductListing = () => {
               data-index={rowIndex}
               ref={rowVirtualizer.measureElement}
               className={clsx(
-                "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
                 "w-full",
+                "grid grid-cols-1 gap-x-4 md:grid-cols-2 md:gap-x-8 lg:grid-cols-3",
+                !isLast && "pb-8",
               )}
               style={{
                 position: "absolute",
