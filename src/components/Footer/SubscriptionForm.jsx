@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useToast from "../../hooks/useToast";
 import Button from "../Button";
 import TextInput from "../TextInput";
 
@@ -8,6 +9,8 @@ const SubscriptionForm = () => {
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const toast = useToast();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,24 +28,23 @@ const SubscriptionForm = () => {
     setErrorMessage("");
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      const data = await response.json().catch(() => ({}));
+    const response = await fetch("/api/newsletter", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
 
-      if (!response.ok) {
-        setErrorMessage(data.error || "Subscription failed. Please try again.");
-        return;
-      }
-      setEmail("");
-    } catch {
-      setErrorMessage("Could not reach the server. Try running with: npm run dev:vercel");
-    } finally {
-      setIsSubmitting(false);
+    if (!response.ok) {
+      toast.error(
+        "Failed to subscribe. Please ensure your email is correct or try again later.",
+      );
+      return;
     }
+    toast.success(
+      "Subscription successful! Please check your email to confirm.",
+    );
+    setEmail("");
+    setIsSubmitting(false);
   };
 
   return (

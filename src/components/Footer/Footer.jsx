@@ -1,4 +1,7 @@
 import clsx from "clsx";
+
+import { CATEGORIES, COLLECTIIONS, FOOTER_SOCIALS } from "../../constants";
+import Link from "../Link";
 import SubscriptionForm from "./SubscriptionForm";
 
 const Footer = () => {
@@ -54,10 +57,37 @@ const Footer = () => {
             )}
           >
             <span className="text-sm text-neutral-500">SHOP CATEGORIES</span>
+            <div className="flex flex-col gap-3">
+              {CATEGORIES.map((category) => (
+                <Link
+                  key={category.value}
+                  to={`/products?categories=${category.value}`}
+                  variant="gray"
+                >
+                  {category.label}
+                </Link>
+              ))}
+            </div>
           </div>
 
-          <div className="col-span-4 mt-8 md:col-span-3 md:mt-12 lg:mt-0">
+          <div
+            className={clsx(
+              "flex flex-col gap-4",
+              "col-span-4 mt-8 md:col-span-3 md:mt-12 lg:mt-0",
+            )}
+          >
             <span className="text-sm text-neutral-500">SHOP COLLECTIONS</span>
+            <div className="flex flex-col gap-3">
+              {COLLECTIIONS.map((collection) => (
+                <Link
+                  key={collection.value}
+                  to={`/products?collections=${collection.value}`}
+                  variant="gray"
+                >
+                  {collection.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -70,7 +100,19 @@ const Footer = () => {
           <span className="text-neutral-500">
             &copy; {new Date().getFullYear()} Stylenest. All rights reserved.
           </span>
-          <div className="flex gap-6"></div>
+          <div className="flex gap-6">
+            {FOOTER_SOCIALS.map(({ icon: Icon, url, name }) => (
+              <Link
+                key={name}
+                to={url}
+                className="!px-0 !text-neutral-400"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon className="size-6" aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
         </div>
       </footer>
     </div>
