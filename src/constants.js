@@ -1,3 +1,11 @@
+import {
+  RiFacebookBoxLine,
+  RiGithubLine,
+  RiInstagramLine,
+  RiTwitterXLine,
+  RiYoutubeLine,
+} from "react-icons/ri";
+
 const COLORS = {
   white: { value: "#fff", label: "White" },
   black: { value: "#000", label: "Black" },
@@ -11,43 +19,29 @@ const COLORS = {
   pink: { value: "#EC4899", label: "Pink" },
 };
 
+const COLLECTIIONS = [
+  { label: "Latest arrivals", value: "latest" },
+  { label: "Urban Oasis", value: "urban" },
+  { label: "Cozy Comfort", value: "cozy" },
+  { label: "Fresh Fusion", value: "fresh" },
+];
+
 const FILTER_COLLECTIONS = {
   label: "Collections",
   value: "collections",
-  items: [
-    { label: "Latest arrivals", value: "latest" },
-    {
-      label: "Urban Oasis",
-      value: "urban",
-    },
-    {
-      label: "Cozy Comfort",
-      value: "cozy",
-    },
-    {
-      label: "Fresh Fusion",
-      value: "fresh",
-    },
-  ],
+  items: COLLECTIIONS,
 };
+
+const CATEGORIES = [
+  { label: "Unisex", value: "unisex" },
+  { label: "Women", value: "women" },
+  { label: "Men", value: "men" },
+];
 
 const FILTER_CATEGORIES = {
   label: "Categories",
   value: "categories",
-  items: [
-    {
-      label: "Unisex",
-      value: "unisex",
-    },
-    {
-      label: "Women",
-      value: "women",
-    },
-    {
-      label: "Men",
-      value: "men",
-    },
-  ],
+  items: CATEGORIES,
 };
 
 const FILTER_COLORS = {
@@ -152,6 +146,34 @@ const SORT_OPTIONS = [
   },
 ];
 
+const FOOTER_SOCIALS = [
+  {
+    icon: RiYoutubeLine,
+    url: "https://youtube.com",
+    name: "Link to Stylenest's youtube profile",
+  },
+  {
+    icon: RiInstagramLine,
+    url: "https://instagram.com",
+    name: "Link to Stylenest's instagram profile",
+  },
+  {
+    icon: RiFacebookBoxLine,
+    url: "https://facebook.com",
+    name: "Link to Stylenest's facebook profile",
+  },
+  {
+    icon: RiGithubLine,
+    url: "https://github.com",
+    name: "Link to Stylenest's github profile",
+  },
+  {
+    icon: RiTwitterXLine,
+    url: "https://twitter.com",
+    name: "Link to Stylenest's twitter profile",
+  },
+];
+
 export {
   COLORS,
   FILTER_COLLECTIONS,
@@ -159,4 +181,7 @@ export {
   FILTER_COLORS,
   FILTER_RATINGS,
   SORT_OPTIONS,
+  CATEGORIES,
+  COLLECTIIONS,
+  FOOTER_SOCIALS,
 };
