@@ -165,93 +165,83 @@ const ProductSpecification = () => {
   const data = SPECIFICATIONS.find((item) => item.value === selectedTab);
 
   return (
-    <div className="min-h-screen mx-auto p-4">
-      <div
-        className={clsx(
-          "min-h-[calc(100vh_-_32px)]",
-          "rounded-md bg-white",
-          "shadow-sm md:shadow-md lg:shadow-lg",
-        )}
-      >
-        <div
-          className={clsx(
-            "flex flex-col gap-16 grow",
-            "px-4 py-12 md:py-16 lg:px-24 lg:px-24",
-          )}
-        >
-          <div className="flex flex-col gap-6">
-            <h2 className="font-semibold text-5xl text-neutral-900">
-              Discover timeless elegance
-            </h2>
+    <div
+      className={clsx(
+        "flex flex-col gap-16 grow",
+        "px-4 py-12 md:py-16 lg:px-24 lg:px-24",
+      )}
+    >
+      <div className="flex flex-col gap-6">
+        <h2 className="font-semibold text-5xl text-neutral-900">
+          Discover timeless elegance
+        </h2>
 
-            <p className="font-normal text-lg text-neutral-600">
-              Step into a world where quality meets quintessential charm with
-              our collection. Every thread weaves a promise of unparalleled
-              quality, ensuring that each garment is not just a part of your
-              wardrobe, but a piece of art. Here's the essence of what makes our
-              apparel the hallmark for those with an eye for excellence and a
-              heart for the environment.
-            </p>
-          </div>
+        <p className="font-normal text-lg text-neutral-600">
+          Step into a world where quality meets quintessential charm with our
+          collection. Every thread weaves a promise of unparalleled quality,
+          ensuring that each garment is not just a part of your wardrobe, but a
+          piece of art. Here's the essence of what makes our apparel the
+          hallmark for those with an eye for excellence and a heart for the
+          environment.
+        </p>
+      </div>
+      <div className="flex flex-col gap-8">
+        <Tabs
+          label="Select product specification"
+          tabs={TABS}
+          activeTab={selectedTab}
+          onTabChange={setSelectedTab}
+        ></Tabs>
+
+        <div className="flex flex-col lg:flex-row gap-8">
+          <picture className="shrink-0">
+            <source media="(min-width:1024px)" srcSet={data.img.desktop} />
+            <source media="(min-width:768px)" srcSet={data.img.tablet} />
+            <img
+              loading="lazy"
+              src={data.img.mobile}
+              alt={data.title}
+              className={clsx(
+                "w-full lg:w-92",
+                "h-45 md:h-96 lg:h-64",
+                "rounded-lg object-cover",
+              )}
+            />
+          </picture>
+
           <div className="flex flex-col gap-8">
-            <Tabs
-              label="Select product specification"
-              tabs={TABS}
-              activeTab={selectedTab}
-              onTabChange={setSelectedTab}
-            ></Tabs>
+            <div className="flex flex-col gap-2">
+              <h3 className="font-medium text-2xl text-neutral-900">
+                {data.title}
+              </h3>
+              <p className="font-normal text-base text-neutral-600">
+                {data.description}
+              </p>
+            </div>
 
-            <div className="flex flex-col lg:flex-row gap-8">
-              <picture className="shrink-0">
-                <source media="(min-width:1024px)" srcSet={data.img.desktop} />
-                <source media="(min-width:768px)" srcSet={data.img.tablet} />
-                <img
-                  loading="lazy"
-                  src={data.img.mobile}
-                  alt={data.title}
-                  className={clsx(
-                    "w-full lg:w-92",
-                    "h-45 md:h-96 lg:h-64",
-                    "rounded-lg object-cover",
-                  )}
-                />
-              </picture>
-
-              <div className="flex flex-col gap-8">
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-medium text-2xl text-neutral-900">
-                    {data.title}
-                  </h3>
-                  <p className="font-normal text-base text-neutral-600">
-                    {data.description}
-                  </p>
-                </div>
-
+            <div
+              className={clsx(
+                "pb-1 md:pb-0",
+                "flex flex-wrap",
+                "gap-4 md:gap-x-12 md:gap-y-8 lg:gap-8",
+              )}
+            >
+              {data.items.map(({ label, icon: Icon }) => (
                 <div
-                  className={clsx(
-                    "pb-1 md:pb-0",
-                    "flex flex-wrap",
-                    "gap-4 md:gap-x-12 md:gap-y-8 lg:gap-8",
-                  )}
+                  className="w-full flex items-center gap-2 md:w-80 md:gap-4 lg:w-70.5"
+                  key={label}
                 >
-                  {data.items.map(({ label, icon: Icon }) => (
-                    <div
-                      className="w-full flex items-center gap-2 md:w-80 md:gap-4 lg:w-70.5"
-                      key={label}
-                    >
-                      <div
-                        className={clsx(
-                          "size-12 rounded-full bg-white shadow",
-                          "flex items-center justify-center shrink-0",
-                        )}
-                      >
-                        <Icon className="size-6 text-indigo-700" />
-                      </div>
-                      <span className="text-neutral-600">{label}</span>
-                    </div>
-                  ))}
+                  <div
+                    className={clsx(
+                      "size-12 rounded-full bg-white shadow",
+                      "flex items-center justify-center shrink-0",
+                    )}
+                  >
+                    <Icon className="size-6 text-indigo-700" />
+                  </div>
+                  <span className="text-neutral-600">{label}</span>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

@@ -1,10 +1,9 @@
-import { createFileRoute, Navigate } from "@tanstack/react-router";
-import Footer from "../components/Footer";
+import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  return <Footer />;
+  return <></>;
 }

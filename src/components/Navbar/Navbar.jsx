@@ -4,14 +4,14 @@ import CartButton from "../CartButton/CartButton";
 import MobileNavMenu from "./MobileNavMenu";
 import Link from "../Link";
 
-const links = [
+const LINKS = [
   {
     name: "Shop all",
-    href: "#",
+    href: "/products/",
   },
   {
     name: "Latest arrivals",
-    href: "#",
+    href: "/latest-arrivals/",
   },
 ];
 
@@ -30,13 +30,15 @@ const Navbar = () => {
         />
       </div>
       <nav className={clsx("hidden flex-1 gap-8", "lg:flex")}>
-        {links.map((link) => (
-          <Link to={link.href}>{link.name}</Link>
+        {LINKS.map((link) => (
+          <Link key={link.href} to={link.href}>
+            {link.name}
+          </Link>
         ))}
       </nav>
       <div className="flex items-center gap-4">
         <CartButton count={1} />
-        <MobileNavMenu links={links} />
+        <MobileNavMenu links={LINKS} />
       </div>
     </div>
   );

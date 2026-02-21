@@ -110,48 +110,40 @@ const ProductListingPage = () => {
   ]);
 
   return (
-    <div
-      className={clsx(
-        "flex flex-col justify-start grow py-2",
-        "bg-white rounded-md",
-        "shadow-sm md:shadow-md lg:shadow-lg",
-      )}
-    >
-      <ProductListingContext.Provider value={value}>
+    <ProductListingContext.Provider value={value}>
+      <div
+        className={clsx(
+          "w-full",
+          "px-3 py-12 md:px-4 md:py-16 lg:px-24 lg:py-24",
+          "grid grid-cols-4 gap-x-4 gap-y-8 md:grid-cols-6 lg:grid-cols-12",
+        )}
+      >
         <div
           className={clsx(
-            "w-full",
-            "px-3 py-12 md:px-4 md:py-16 lg:px-24 lg:py-24",
-            "grid grid-cols-4 gap-x-4 gap-y-8 md:grid-cols-6 lg:grid-cols-12",
+            "col-span-4 md:col-span-6 lg:col-span-3",
+            "lg:pr-4 lg:pt-4 lg:pb-4",
+            "flex justify-between",
           )}
         >
-          <div
-            className={clsx(
-              "col-span-4 md:col-span-6 lg:col-span-3",
-              "lg:pr-4 lg:pt-4 lg:pb-4",
-              "flex justify-between",
-            )}
-          >
-            <Filter />
-            <div className="block lg:hidden">
-              <Sort />
-            </div>
-          </div>
-
-          <div
-            className={clsx(
-              "col-span-4 md:col-span-6 lg:col-span-9",
-              "flex flex-col items-end gap-8",
-            )}
-          >
-            <div className="hidden lg:block">
-              <Sort />
-            </div>
-            <ProductListing />
+          <Filter />
+          <div className="block lg:hidden">
+            <Sort />
           </div>
         </div>
-      </ProductListingContext.Provider>
-    </div>
+
+        <div
+          className={clsx(
+            "col-span-4 md:col-span-6 lg:col-span-9",
+            "flex flex-col items-end gap-8",
+          )}
+        >
+          <div className="hidden lg:block">
+            <Sort />
+          </div>
+          <ProductListing />
+        </div>
+      </div>
+    </ProductListingContext.Provider>
   );
 };
 
