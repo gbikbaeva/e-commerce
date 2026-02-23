@@ -1,8 +1,8 @@
 import clsx from "clsx";
 
 import CartButton from "../CartButton/CartButton";
-import MobileNavMenu from "./MobileNavMenu";
 import Link from "../Link";
+import MobileNavMenu from "./MobileNavMenu";
 
 const LINKS = [
   {
@@ -37,7 +37,7 @@ const Navbar = () => {
         ))}
       </nav>
       <div className="flex items-center gap-4">
-        <CartButton count={1} />
+        <CartButton />
         <MobileNavMenu links={LINKS} />
       </div>
     </div>

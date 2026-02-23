@@ -18,6 +18,10 @@ const AvailableSizes = () => {
     productDetail;
   const { sizes } = product;
 
+  if (sizes.length === 0) {
+    return null;
+  }
+
   const unavailableSizes = useMemo(
     () =>
       getUnavailableSizes({
@@ -32,6 +36,7 @@ const AvailableSizes = () => {
       <legend className="font-normal text-sm text-neutral-500">
         Available Sizes
       </legend>
+
       <div className="mt-4 flex flex-wrap items-center gap-4">
         {sizes.map((size) => {
           const outOfStock = unavailableSizes.includes(size);
@@ -84,7 +89,7 @@ const AvailableSizes = () => {
                   }
                 }}
               >
-                {SIZE_MAP[size]}
+                {SIZE_MAP[size] || size}
               </span>
             </label>
           );

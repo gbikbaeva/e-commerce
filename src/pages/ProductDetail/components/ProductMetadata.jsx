@@ -11,9 +11,12 @@ import ProductInfo from "./ProductInfo";
 import ProductQuantity from "./ProductQuantity";
 import { ProductDetailContext } from "./contexts";
 import AvailableSizes from "./AvailableSizes";
+import { CartContext } from "../../../contexts/CartContext";
 
 const ProductMetadata = () => {
   const [productDetail] = useContext(ProductDetailContext);
+  const [cartItems, addToCart] = useContext(CartContext);
+
   const { product, selectedColor, selectedSize, itemQuantity } = productDetail;
   const { description, name, reviews, rating } = product;
 
@@ -100,6 +103,15 @@ const ProductMetadata = () => {
             label="Add to Cart"
             size={isMobileAndBelow ? "xl" : "2xl"}
             isDisabled={itemQuantity === 0 || stock === 0}
+            onClick={(e) => {
+              e.preventDefault();
+              addToCart({
+                id: product.id,
+                size: selectedSize,
+                color: selectedColor,
+                quantity: itemQuantity,
+              });
+            }}
           ></Button>
         </form>
       </section>
