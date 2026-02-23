@@ -1,9 +1,10 @@
-import clsx from "clsx";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { getUnavailableSizes } from "../../utils";
+import ProductSpecification from "../../components/ProductSpecification";
 import { ProductDetailContext } from "./components/contexts";
 import ProductDetail from "./components/ProductDetail";
+import ProductCollection from "./components/ProductCollection";
 
 const ProductDetailPage = ({ productId }) => {
   const [product, setProduct] = useState(null);
@@ -75,25 +76,13 @@ const ProductDetailPage = ({ productId }) => {
   ]);
 
   return (
-    <div
-      className={clsx(
-        "flex flex-col justify-start grow py-2",
-        "bg-white rounded-md",
-        "shadow-sm md:shadow-md lg:shadow-lg",
-      )}
-    >
+    <>
       <ProductDetailContext.Provider value={[value, () => {}]}>
-        <div
-          className={clsx(
-            "w-full",
-            "px-4 py-12 md:py-16 lg:p-24",
-            "grid grid-cols-4 gap-x-4 gap-y-12 md:grid-cols-6 md:gap-x-8 lg:grid-cols-12",
-          )}
-        >
-          <ProductDetail />
-        </div>
+        <ProductDetail />
       </ProductDetailContext.Provider>
-    </div>
+      <ProductSpecification />
+      <ProductCollection />
+    </>
   );
 };
 

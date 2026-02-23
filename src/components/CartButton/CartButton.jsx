@@ -1,8 +1,14 @@
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { Link as RouterLink } from "@tanstack/react-router";
 import clsx from "clsx";
+import { useContext } from "react";
 
-const CartButton = ({ count, disabled }) => {
+import { CartContext } from "../../contexts/CartContext";
+
+const CartButton = ({ disabled }) => {
+  const [cartItems] = useContext(CartContext);
+  const cartItemCount = cartItems.length;
+
   return (
     <RouterLink
       className={clsx(
@@ -15,7 +21,7 @@ const CartButton = ({ count, disabled }) => {
     >
       <RiShoppingBag3Line className="size-5" aria-hidden="true" />
 
-      {count > 0 && (
+      {cartItemCount > 0 && (
         <div
           className={clsx(
             "absolute -right-1.5 -top-1.5 w-4.5 h-4.5 rounded-full text-center text-xs font-semibold",
@@ -26,7 +32,7 @@ const CartButton = ({ count, disabled }) => {
             },
           )}
         >
-          {count}
+          {cartItemCount}
         </div>
       )}
     </RouterLink>
