@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useCallback } from "react";
 import { useNavigate } from "@tanstack/react-router";
 
-import Link from "../Link";
+import Link from "../../../components/Link";
 
 const variants = {
   primary: clsx("max-w-145 h-145"),
