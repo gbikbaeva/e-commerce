@@ -38,6 +38,14 @@ const CATEGORIES = [
   { label: "Men", value: "men" },
 ];
 
+const SIZE = {
+  xs: { short: "XS", long: "Extra Small" },
+  sm: { short: "S", long: "Small" },
+  md: { short: "M", long: "Medium" },
+  lg: { short: "L", long: "Large" },
+  xl: { short: "XL", long: "Extra Large" },
+};
+
 const FILTER_CATEGORIES = {
   label: "Categories",
   value: "categories",
@@ -184,4 +192,5 @@ export {
   CATEGORIES,
   COLLECTIIONS,
   FOOTER_SOCIALS,
+  SIZE,
 };
