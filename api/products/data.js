@@ -9,6 +9,11 @@ async function readJson(name) {
   return JSON.parse(contents);
 }
 
+export async function loadCollections() {
+  const raw = await readJson("collections");
+  return Array.isArray(raw) ? raw : [];
+}
+
 export async function loadProductsData() {
   const [
     products,

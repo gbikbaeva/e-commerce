@@ -20,6 +20,22 @@ body {
   background-image: linear-gradient(to bottom, #f9fafb, #d2d6db);
 }
 
+.bg-collection {
+  background: linear-gradient(
+    60deg,
+    rgba(0, 0, 0, 0.4) -9.37%,
+    rgba(0, 0, 0, 0.132) 100%
+  );
+}
+
+.bg-collection-hover {
+  background: linear-gradient(
+    360deg,
+    rgba(0, 0, 0, 0.6) -9.37%,
+    rgba(0, 0, 0, 0.198) 100%
+  );
+}
+
 /* Custom z-index */
 .z-sticky {
   z-index: 1020;
