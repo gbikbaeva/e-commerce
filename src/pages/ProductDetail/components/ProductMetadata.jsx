@@ -5,7 +5,7 @@ import Badge from "../../../components/Badge";
 import Rating from "../../../components/Rating";
 import Link from "../../../components/Link";
 import Button from "../../../components/Button";
-import { getInventoryData } from "../../../utils";
+import { getInventoryData, getSelectedColorImages } from "../../../utils";
 import AvailableColors from "./AvailableColors";
 import ProductInfo from "./ProductInfo";
 import ProductQuantity from "./ProductQuantity";
@@ -15,7 +15,7 @@ import { CartContext } from "../../../contexts/CartContext";
 
 const ProductMetadata = () => {
   const [productDetail] = useContext(ProductDetailContext);
-  const [cartItems, addToCart] = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   const { product, selectedColor, selectedSize, itemQuantity } = productDetail;
   const { description, name, reviews, rating } = product;
@@ -27,6 +27,11 @@ const ProductMetadata = () => {
   );
 
   const { stock, list_price, discount_percentage, sale_price } = inventoryData;
+
+  const images = useMemo(
+    () => getSelectedColorImages({ product, color: selectedColor }),
+    [product, selectedColor],
+  );
 
   const hasDiscount = !!discount_percentage;
   const roundedRating = Math.round(rating * 10) / 10;
@@ -106,9 +111,22 @@ const ProductMetadata = () => {
             onClick={(e) => {
               e.preventDefault();
               addToCart({
-                id: product.id,
-                size: selectedSize,
-                color: selectedColor,
+                product: {
+                  product_id: product.product_id,
+                  name: product.name,
+                  description: product.description,
+                },
+                unit: {
+                  sku: inventoryData.sku,
+                  size: selectedSize,
+                  color: selectedColor,
+                  sale_price,
+                  list_price,
+                  image_url: images.length > 0 ? images[0].image_url : null,
+                  stock,
+                },
+                total_list_price: list_price * itemQuantity,
+                total_sale_price: sale_price * itemQuantity,
                 quantity: itemQuantity,
               });
             }}

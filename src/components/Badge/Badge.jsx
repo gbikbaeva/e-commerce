@@ -7,6 +7,7 @@ const sizes = {
 };
 
 const variants = {
+  primary: clsx("bg-indigo-50", "border-indigo-200", "text-indigo-700"),
   danger: clsx("bg-red-50", "border-red-200", "text-red-600"),
   neutral: clsx("bg-gray-50", "border-neutral-200", "text-neutral-600"),
   success: clsx("bg-green-50", "border-green-200", "text-green-700"),

@@ -47,3 +47,6 @@ export const getSelectedColorImages = ({ product, color }) => {
   const images = product.images?.filter((image) => image.color === color);
   return images;
 };
+
+export const formatPrice = (price) =>
+  Number.isInteger(price) ? price : price.toFixed(2);

@@ -1,0 +1,32 @@
+{
+  "cart_id": "4126347157",
+  "items": [
+    {
+      "product": {
+        "product_id": "stepsoft-socks",
+        "name": "StepSoft Socks",
+        "description": "Step into luxury with our StepSoft Socks, designed to pamper your feet with every step. Their cloud-like cushioning is like a spa for your soles."
+      },
+      "unit": {
+        "sku": "ss-orange-xs",
+        "list_price": 25,
+        "sale_price": 22.5,
+        "size": "xs",
+        "color": "orange",
+        "stock": 10,
+        "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/stepsoft-socks/stepsoft-socks-1.jpg"
+      },
+      "total_list_price": 25,
+      "total_sale_price": 22.5,
+      "quantity": 1,
+      "created_at": "2024-01-31"
+    }
+  ],
+  "summary": {
+    "subtotal": 162.5,
+    "discount": 0,
+    "discount_code": null,
+    "shipping": 0,
+    "total": 162.5
+  }
+}

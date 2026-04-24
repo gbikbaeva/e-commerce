@@ -6,11 +6,12 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
 const CartButton = ({ disabled }) => {
-  const [cartItems] = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
   const cartItemCount = cartItems.length;
 
   return (
     <RouterLink
+      to={"/shopping-cart/"}
       className={clsx(
         "relative cursor-pointer rounded text-neutral-600",
         "focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]",
